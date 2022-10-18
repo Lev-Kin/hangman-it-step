@@ -13,4 +13,7 @@ import game from  './game.js';
 
 game();
 
-console.log(game);
+
+console.log(solution);
+
+
