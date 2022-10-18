@@ -9,11 +9,9 @@
 // 7 определения выигрыша проигрыша
 // 8 вывод окна модального в браузере
 
-import solution from  './spanwriter.js';
+import spanWriter from "./span-writer.js";
 
-solution();
+spanWriter();
 
-
-console.log(solution);
-
+console.log(spanWriter);
 
