@@ -9,3 +9,8 @@
 // 7 определения выигрыша проигрыша
 // 8 вывод окна модального в браузере
 
+import game from  './game.js';
+
+game();
+
+console.log(solution);
