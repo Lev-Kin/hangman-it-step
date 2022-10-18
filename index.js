@@ -9,9 +9,9 @@
 // 7 определения выигрыша проигрыша
 // 8 вывод окна модального в браузере
 
-import game from  './game.js';
+import solution from  './spanwriter.js';
 
-game();
+solution();
 
 console.log(solution);
 
