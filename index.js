@@ -14,3 +14,4 @@ import spanWriter from "./span-writer.js";
 spanWriter();
 
 console.log(spanWriter);
+

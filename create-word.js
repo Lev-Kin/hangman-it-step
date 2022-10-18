@@ -7,4 +7,3 @@ function createWord (word){
 const loadWord = createWord(wordArray);
 
 export default loadWord;
-
