@@ -1,15 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HANGMAN</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HANGMAN</title>
-</head>
+    <style>
+      #wrapper {
+        max-width: 1200px;
+        height: 90vh;
+        width: 90%;
+        margin: 20px auto;
+        text-align: center;
+        font-size: 50px;
+        border: solid red 1px;
+      }
 
-<body>
-  <script src="index.js"></script>
-</body>
+      #gallow {
+        max-height: 50%;
+      }
 
+      #word {
+        margin-top: 50px;
+        padding: 20px;
+        text-align: center;
+        letter-spacing: 50px;
+      }
+
+      #answer {
+        margin-top: 50px;
+        padding: 20px;
+        text-align: center;
+        letter-spacing: 50px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <h1>HANGMAN</h1>
+      <img id="gallow" src="img/1.png" alt="gallow" />
+
+      <div id="word"></div>
+      <div id="answer">
+        <input type="text" id="letter" maxlength="1" />
+        <button id="btn">Ok</button>
+      </div>
+    </div>
+    <script src="script.js" type="module"></script>
+  </body>
 </html>
