@@ -1,4 +1,9 @@
-
 const wordArray = ['python', 'java', 'swift', 'javascript'];
-export default loadWord = (words) => words[Math.floor(Math.random() * words.length)];
 
+function createWord (word){
+    return word[Math.floor(Math.random() * word.length)];
+}
+
+const loadWord = createWord(wordArray);
+
+export default loadWord;
