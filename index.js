@@ -13,4 +13,4 @@ import game from  './game.js';
 
 game();
 
-console.log(solution);
+console.log(game);
