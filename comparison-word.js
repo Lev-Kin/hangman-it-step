@@ -1,8 +1,6 @@
 import loadWord from "./create-word.js";
+import {win, lose, restartGame} from "./winner-checker.js";
 
-function gameOver(param) {
-    return param ? true : false;
-}
 
 const comparisonWord = () => {
 
@@ -10,7 +8,7 @@ const comparisonWord = () => {
     const letter = document.getElementById('letter');
     const btn = document.getElementById('btn');
     const gallow = document.getElementById('gallow');
-
+    
     function counter() {
         let numberImg = 2;
         return function () {
@@ -41,7 +39,7 @@ const comparisonWord = () => {
             let numberCheck = numberImg();
             gallow.src = `img/${numberCheck}.png`;
             if (numberCheck === 4) {
-                gameOver(true);
+             lose();
             }
         }
         else {
@@ -52,13 +50,15 @@ const comparisonWord = () => {
 
         letter.value = '';
         if (loadWord.split("").every((item, i) => item.toUpperCase() === word.children[i].textContent.toUpperCase())) {
-            gameOver(false);
+            win();
         }
     }
 
     btn.addEventListener('click', enterLetter);
     letter.addEventListener('keypress', letterEnter);
-};
+    
+    };
 
-export const game = gameOver();
+// let gameOver = comparisonWord();
+// export { gameOver };
 export default comparisonWord;

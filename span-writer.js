@@ -14,7 +14,8 @@ const spanWriter = () => {
     }
   }
 
-  spanGenerator(guessWord);
+  spanGenerator(loadWord.split(""));
 };
 
 export default spanWriter;
+// export {guessWord}
