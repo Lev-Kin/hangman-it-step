@@ -10,8 +10,11 @@
 // 8 вывод окна модального в браузере
 
 import spanWriter from "./span-writer.js";
+import comparisonWord from "./comparison-word.js";
 
 spanWriter();
+comparisonWord();
 
-console.log(spanWriter);
+// console.log(spanWriter);
+// console.log(comparisonWord);
 
