@@ -9,9 +9,13 @@
 // 7 определения выигрыша проигрыша
 // 8 вывод окна модального в браузере
 
+import winnerChecker from "./winner-checker.js";
 import spanWriter from "./span-writer.js";
+import loadWord from "./create-word.js";
 
+winnerChecker();
 spanWriter();
+loadWord();
 
-console.log(spanWriter);
+// console.log(spanWriter);
 

@@ -1,3 +1,10 @@
+import spanWriter from "./span-writer.js";
+import loadWord from "./create-word.js";
+spanWriter();
+createWord();
+
+
+const winnerChecker = () => {
 function win() {
     const winWord = document.createElement('div');
     const btnReset = document.createElement('button');
@@ -22,7 +29,7 @@ function lose() {
     btnReset.id = 'reset';
     btnReset.textContent = 'Reset';
     wrapper.style.backgroundColor = 'red';
-    loseWord.textContent = 'Ты проиграл!';
+    winWord.textContent = 'Ты проиграл!'
     wrapper.append(loseWord);
     loseWord.append(btnReset);
     btn.disabled = true;
@@ -31,17 +38,16 @@ function lose() {
 
 function restartGame() {
     console.log(word.children.length)
-    for (let i = 0; i < wordMass.length; i++) {
+    for (let i = 0; i < guessWord.length; i++) {
         word.children[0].remove();
     }
     wrapper.style.backgroundColor = 'white';
-    man.src = `img/1.png`;
-    count(true);
+    gallow.src = `img/1.png`;
     letter.value = '';
     wrapper.lastChild.remove();
-    wordMass = spawnWord();
-    spanGenerate(wordMass);
-    console.log(wordMass);
+    guessWord = chooseWord();
+    spanGenerator(guessWord);
+    console.log(guessWord);
     btn.disabled = false;
     letter.disabled = false;
 }
@@ -49,4 +55,6 @@ function restartGame() {
 // btn.addEventListener('click', enterLetter);
 // letter.addEventListener('keypress', letterEnter);
 
-lose();
+}
+
+export default winnerChecker
