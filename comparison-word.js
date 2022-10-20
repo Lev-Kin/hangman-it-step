@@ -1,27 +1,24 @@
 import loadWord from "./create-word.js";
-import aaa from './span-writer.js';
+
+function gameOver(param) {
+    return param ? true : false;
+}
 
 const comparisonWord = () => {
 
+    const word = document.getElementById('word');
     const letter = document.getElementById('letter');
     const btn = document.getElementById('btn');
     const gallow = document.getElementById('gallow');
 
-    let wordMass = loadWord.split("");
-
-    let count = startCounter()
-
-    function startCounter() {
-        let count = 2;
-        return function (imgName = undefined) {
-            if (imgName) {
-                count = 2;
-            }
-            else {
-                return count > 5 ? 5 : count++;
-            }
+    function counter() {
+        let numberImg = 2;
+        return function () {
+            return numberImg > 4 ? 4 : numberImg++;
         }
     }
+
+    let numberImg = counter();
 
     function letterEnter({ key }) {
         if (key === 'Enter') {
@@ -30,9 +27,9 @@ const comparisonWord = () => {
     }
 
     function enterLetter() {
-        let buf = [];
-        if (!wordMass.some((_, i) => word.children[i].textContent.toUpperCase() === letter.value.toUpperCase())) {
-            buf = wordMass.reduce((acc, item, index) => {
+        let tmp = [];
+        if (!loadWord.split("").some((_, i) => word.children[i].textContent.toUpperCase() === letter.value.toUpperCase())) {
+            tmp = loadWord.split("").reduce((acc, item, index) => {
                 if (letter.value.toUpperCase() === item.toUpperCase()) {
                     acc.push(index);
                 }
@@ -40,26 +37,28 @@ const comparisonWord = () => {
             }, []);
         }
 
-        if (buf.length === 0) {
-            let checkCount = count();
-            gallow.src = `img/${checkCount}.png`;
-            if (checkCount === 4) {
-                lose();
+        if (tmp.length === 0) {
+            let numberCheck = numberImg();
+            gallow.src = `img/${numberCheck}.png`;
+            if (numberCheck === 4) {
+                gameOver(true);
             }
         }
         else {
-            buf.forEach((_, i) => { word.children[buf[i]].textContent = `${letter.value}`.toUpperCase(); })
+            tmp.forEach((_, i) => {
+                word.children[tmp[i]].textContent = `${letter.value}`.toUpperCase();
+            })
         }
+
         letter.value = '';
-        if (wordMass.every((item, i) => item.toUpperCase() === word.children[i].textContent.toUpperCase())) {
-            win();
+        if (loadWord.split("").every((item, i) => item.toUpperCase() === word.children[i].textContent.toUpperCase())) {
+            gameOver(false);
         }
     }
-
-
 
     btn.addEventListener('click', enterLetter);
     letter.addEventListener('keypress', letterEnter);
 };
 
+export const game = gameOver();
 export default comparisonWord;

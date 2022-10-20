@@ -15,6 +15,6 @@ import comparisonWord from "./comparison-word.js";
 spanWriter();
 comparisonWord();
 
-console.log(spanWriter);
-console.log(comparisonWord);
+// console.log(spanWriter);
+// console.log(comparisonWord);
 
