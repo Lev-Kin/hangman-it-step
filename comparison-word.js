@@ -1,9 +1,5 @@
 import loadWord from "./create-word.js";
 
-function gameOver(param) {
-    return param ? true : false;
-}
-
 const comparisonWord = () => {
 
     const word = document.getElementById('word');
@@ -11,14 +7,16 @@ const comparisonWord = () => {
     const btn = document.getElementById('btn');
     const gallow = document.getElementById('gallow');
 
-    function counter() {
+    console.log(loadWord);
+
+    function count() {
         let numberImg = 2;
         return function () {
             return numberImg > 4 ? 4 : numberImg++;
         }
     }
 
-    let numberImg = counter();
+    let numberImg = count();
 
     function letterEnter({ key }) {
         if (key === 'Enter') {
@@ -41,7 +39,7 @@ const comparisonWord = () => {
             let numberCheck = numberImg();
             gallow.src = `img/${numberCheck}.png`;
             if (numberCheck === 4) {
-                gameOver(true);
+                lose();
             }
         }
         else {
@@ -52,7 +50,7 @@ const comparisonWord = () => {
 
         letter.value = '';
         if (loadWord.split("").every((item, i) => item.toUpperCase() === word.children[i].textContent.toUpperCase())) {
-            gameOver(false);
+            win();
         }
     }
 
@@ -60,5 +58,4 @@ const comparisonWord = () => {
     letter.addEventListener('keypress', letterEnter);
 };
 
-export const game = gameOver();
 export default comparisonWord;
