@@ -1,22 +1,28 @@
-import loadWord from "./create-word.js";
 
-const comparisonWord = () => {
+import { win, lose } from "./winner-checker.js";
 
-    const word = document.getElementById('word');
+let numberImg;
+function comparisonWord(wordCh) {
+
     const letter = document.getElementById('letter');
     const btn = document.getElementById('btn');
     const gallow = document.getElementById('gallow');
 
-    console.log(loadWord);
+    console.log(wordCh);
+
+    numberImg = count();
 
     function count() {
         let numberImg = 2;
-        return function () {
-            return numberImg > 4 ? 4 : numberImg++;
+        return function (a = undefined) {
+            if (a) {
+                numberImg = 2;
+            } else {
+                return numberImg > 4 ? 4 : numberImg++;
+            }
+
         }
     }
-
-    let numberImg = count();
 
     function letterEnter({ key }) {
         if (key === 'Enter') {
@@ -26,8 +32,8 @@ const comparisonWord = () => {
 
     function enterLetter() {
         let tmp = [];
-        if (!loadWord.split("").some((_, i) => word.children[i].textContent.toUpperCase() === letter.value.toUpperCase())) {
-            tmp = loadWord.split("").reduce((acc, item, index) => {
+        if (!wordCh.some((_, i) => word.children[i].textContent.toUpperCase() === letter.value.toUpperCase())) {
+            tmp = wordCh.reduce((acc, item, index) => {
                 if (letter.value.toUpperCase() === item.toUpperCase()) {
                     acc.push(index);
                 }
@@ -49,7 +55,7 @@ const comparisonWord = () => {
         }
 
         letter.value = '';
-        if (loadWord.split("").every((item, i) => item.toUpperCase() === word.children[i].textContent.toUpperCase())) {
+        if (wordCh.every((item, i) => item.toUpperCase() === word.children[i].textContent.toUpperCase())) {
             win();
         }
     }
@@ -58,4 +64,5 @@ const comparisonWord = () => {
     letter.addEventListener('keypress', letterEnter);
 };
 
+export { numberImg };
 export default comparisonWord;

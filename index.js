@@ -9,11 +9,14 @@
 // 7 определения выигрыша проигрыша
 // 8 вывод окна модального в браузере
 
-import spanWriter from "./span-writer.js";
+import {createWord} from "./create-word.js";
+import spanGenerator from "./span-writer.js";
 import comparisonWord from "./comparison-word.js";
 
-spanWriter();
-comparisonWord();
+const loadWord = createWord();
+spanGenerator(loadWord.split(""));
+comparisonWord(loadWord.split(""));
+
 
 // console.log(spanWriter);
 // console.log(comparisonWord);

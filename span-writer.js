@@ -1,20 +1,11 @@
-import loadWord from "./create-word.js";
 
-const spanWriter = () => {
-  function chooseWord() {
-    return loadWord.split("");
+const word = document.getElementById('word');
+
+function spanGenerator(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    word.append(document.createElement("span"));
+    word.lastChild.textContent = "_";
   }
+}
 
-  let guessWord = chooseWord();
-
-  function spanGenerator(mass) {
-    for (let i = 0; i < mass.length; i++) {
-      word.append(document.createElement("span"));
-      word.lastChild.textContent = "_";
-    }
-  }
-
-  spanGenerator(guessWord);
-};
-
-export default spanWriter;
+export default spanGenerator;
