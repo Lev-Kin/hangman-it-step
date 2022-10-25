@@ -1,5 +1,5 @@
 import { guessWord } from "./span-writer.js";
-import {win, lose, showModal} from "./winner-checker.js";
+import {win, lose} from "./winner-checker.js";
 
 
     const word = document.getElementById('word');
