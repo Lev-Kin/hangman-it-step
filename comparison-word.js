@@ -1,13 +1,13 @@
 import { guessWord } from "./span-writer.js";
 import {win, lose} from "./winner-checker.js";
 
-
     const word = document.getElementById('word');
     const letter = document.getElementById('letter');
     const btn = document.getElementById('btn');
     const gallow = document.getElementById('gallow');
     
     function counter() {
+
         let numberImg = 2;
         return function () {
             return numberImg > 4 ? 4 : numberImg++;
@@ -47,7 +47,9 @@ import {win, lose} from "./winner-checker.js";
         }
 
         letter.value = '';
+
         if (guessWord.every((item, i) => item.toUpperCase() === word.children[i].textContent.toUpperCase())) {
+
             win();
         }
     }
@@ -56,3 +58,4 @@ import {win, lose} from "./winner-checker.js";
     letter.addEventListener('keypress', letterEnter);
  
 export {enterLetter};
+
