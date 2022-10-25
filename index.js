@@ -9,4 +9,4 @@
 // 7 определения выигрыша проигрыша
 // 8 вывод окна модального в браузере
 
-import {enterLetter} from "./comparison-word.js";
+import { enterLetter } from "./comparison-word.js";

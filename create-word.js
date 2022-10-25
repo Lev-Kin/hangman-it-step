@@ -1,4 +1,4 @@
-const wordArray = ["python", "java", "swift", "javascript"];
+const wordArray = ['python', 'java', 'swift', 'javascript', 'kotlin', 'pascal', 'ruby', 'groovy', 'cobol', 'scala'];
 
 function createWord(word) {
   return word[Math.floor(Math.random() * word.length)];
