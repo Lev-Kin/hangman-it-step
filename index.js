@@ -9,12 +9,6 @@
 // 7 определения выигрыша проигрыша
 // 8 вывод окна модального в браузере
 
-import spanWriter from "./span-writer.js";
-import comparisonWord from "./comparison-word.js";
-
-spanWriter();
-comparisonWord();
-
-// console.log(spanWriter);
-// console.log(comparisonWord);
-
+import {guessWord, spanGenerator} from "./span-writer.js";
+import {enterLetter} from "./comparison-word.js";
+import {win, lose, showModal} from "./winner-checker.js";

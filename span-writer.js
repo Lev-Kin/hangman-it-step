@@ -1,6 +1,6 @@
 import loadWord from "./create-word.js";
 
-const spanWriter = () => {
+
   function chooseWord() {
     return loadWord.split("");
   }
@@ -15,6 +15,8 @@ const spanWriter = () => {
   }
 
   spanGenerator(guessWord);
-};
 
-export default spanWriter;
+
+
+export {guessWord, spanGenerator}
+
