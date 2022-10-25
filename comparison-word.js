@@ -1,8 +1,6 @@
-import loadWord from "./create-word.js";
-import {win, lose, restartGame} from "./winner-checker.js";
+import { guessWord } from "./span-writer.js";
+import {win, lose, showModal} from "./winner-checker.js";
 
-
-const comparisonWord = () => {
 
     const word = document.getElementById('word');
     const letter = document.getElementById('letter');
@@ -26,8 +24,8 @@ const comparisonWord = () => {
 
     function enterLetter() {
         let tmp = [];
-        if (!loadWord.split("").some((_, i) => word.children[i].textContent.toUpperCase() === letter.value.toUpperCase())) {
-            tmp = loadWord.split("").reduce((acc, item, index) => {
+        if (!guessWord.some((_, i) => word.children[i].textContent.toUpperCase() === letter.value.toUpperCase())) {
+            tmp = guessWord.reduce((acc, item, index) => {
                 if (letter.value.toUpperCase() === item.toUpperCase()) {
                     acc.push(index);
                 }
@@ -49,16 +47,12 @@ const comparisonWord = () => {
         }
 
         letter.value = '';
-        if (loadWord.split("").every((item, i) => item.toUpperCase() === word.children[i].textContent.toUpperCase())) {
+        if (guessWord.every((item, i) => item.toUpperCase() === word.children[i].textContent.toUpperCase())) {
             win();
         }
     }
 
     btn.addEventListener('click', enterLetter);
     letter.addEventListener('keypress', letterEnter);
-    
-    };
-
-// let gameOver = comparisonWord();
-// export { gameOver };
-export default comparisonWord;
+ 
+export {enterLetter};
